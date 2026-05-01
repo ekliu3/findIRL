@@ -1,0 +1,30 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html data-theme="dark">
+
+<head>
+    <title>{% block title %}My Site{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+
+<body class="p-6">
+    <header>
+        <nav="mb-6">
+            <a href="/" class="btn btn-ghost">Home</a>
+            <a href="/posts" class="btn btn-ghost">Posts</a>
+            </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My Site</p>
+    </footer>
+</body>
+
+</html>

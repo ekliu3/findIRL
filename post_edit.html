@@ -1,0 +1,22 @@
+<div class="ml-4">
+    <h3 class="font-semibold mb-2">Comments</h3>
+
+    {% for comment in comments %}
+    {% include "fragments/comment_row.html" %}
+    {% else %}
+    <p class="text-sm text-gray-400">No comments.</p>
+    {% endfor %}
+
+    <!-- <form class="mt-2" hx-post="/fragments/posts/{{ post_id }}/comments" hx-target="this" hx-swap="beforebegin">
+
+        <input name="comment" class="input input-bordered mb-1" placeholder="Comment" required>
+
+        <select name="user_id" class="select select-bordered mb-1" required>
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+
+        <button class="btn btn-sm btn-secondary">Add</button>
+    </form> -->
+</div>

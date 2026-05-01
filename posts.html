@@ -1,0 +1,5 @@
+{% for post in posts %}
+{% include "fragments/post_row.html" %}
+{% else %}
+<p>No posts yet.</p>
+{% endfor %}

@@ -1,0 +1,16 @@
+<form class="card bg-base-200 p-4 mb-6" hx-post="/fragments/posts" hx-target="#posts-list" hx-swap="afterbegin">
+
+    <h2 class="font-semibold mb-2">New Post</h2>
+
+    <input name="title" class="input input-bordered mb-2" placeholder="Title" required>
+    <textarea name="text" class="textarea textarea-bordered mb-2" placeholder="Text" required></textarea>
+    <input name="duration" type="number" class="input input-bordered mb-2" placeholder="Duration (hours)" required>
+
+    <select name="user_id" class="select select-bordered mb-2" required>
+        {% for user in users %}
+        <option value="{{ user.id }}">{{ user.username }}</option>
+        {% endfor %}
+    </select>
+
+    <button class="btn btn-primary">Create</button>
+</form>

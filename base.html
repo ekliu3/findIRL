@@ -1,0 +1,48 @@
+from __future__ import annotations
+
+from datetime import datetime
+from typing import List, Optional
+
+from pydantic import BaseModel, ConfigDict, Field
+
+
+class UserBase(BaseModel):
+    first_name: str = Field(..., min_length=1, max_length=50)
+    last_name: str = Field(..., min_length=1, max_length=50)
+    username: str = Field(..., min_length=2, max_length=20)
+
+
+class UserIn(UserBase):
+    password: str = Field(..., min_length=6)
+
+
+class UserOut(UserBase):
+    id: int
+
+
+class PostBase(BaseModel):
+    title: str = Field(..., min_length=1, max_length=100)
+    text: str = Field(..., min_length=10)
+    duration: int = Field(..., ge=1, le=10, description="duration in hours")
+
+
+class PostIn(PostBase):
+    pass
+
+
+class PostOut(PostBase):
+    id: int
+    created_at: datetime
+
+
+class CommentBase(BaseModel):
+    text: str = Field(..., min_length=1)
+
+
+class CommentIn(CommentBase):
+    pass
+
+
+class CommentOut(CommentBase):
+    id: int
+    created_at: datetime
